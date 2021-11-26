@@ -1,26 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FirebaseDbService } from '../firebase-db.service';
-import { Canciones } from './album.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-album',
   templateUrl: './album.component.html',
   styleUrls: ['./album.component.scss'],
 })
-export class AlbumComponent implements OnInit {
+export class AlbumComponent implements OnInit, OnDestroy {
 
   constructor(private fdbs: FirebaseDbService) { }
 
   canciones = [];
 
-  cargarplaylist(){
-    this.fdbs.getPublicaciones().subscribe(res => {
-      console.log(res);
+  obtenerMusicaSubscribe: Subscription;
+
+  obtenerMusica = this.fdbs.getCanciones();
+
+  ngOnInit() { 
+    this.obtenerMusicaSubscribe = this.obtenerMusica.subscribe(res =>{
       this.canciones = res;
     })
   }
 
-  ngOnInit() { this.cargarplaylist(); }
+  ngOnDestroy(){ 
+    if(this.obtenerMusicaSubscribe){
+      this.obtenerMusicaSubscribe.unsubscribe()
+    }
+  }
 
 /*
   getCanciones(){

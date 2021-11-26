@@ -15,7 +15,7 @@ export class FirebaseDbService {
 
     resArray=[];
 
-    getPublicaciones(){
+    getCanciones(){
       return this.http.get('https://sfotipyapp-default-rtdb.firebaseio.com/Canciones.json')
       .pipe(
         map(res => {
@@ -25,6 +25,22 @@ export class FirebaseDbService {
         })
       )
     }
+
+    getCancion(idCancion){
+      return this.http.get('https://sfotipyapp-default-rtdb.firebaseio.com/Canciones/'+idCancion+'.json');
+    }
+
+    getPlaylist(){
+      return this.http.get('https://sfotipyapp-default-rtdb.firebaseio.com/Album.json')
+      .pipe(
+        map(res => {
+          for(const key in res){
+            this.resArray.push( {...res[key],key});
+          }return this.resArray;
+        })
+      )
+    }
+
 
     /*async getAll (collection){
       try{

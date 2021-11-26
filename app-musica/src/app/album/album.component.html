@@ -1,7 +1,7 @@
 <ion-grid>
   <ion-row *ngFor="let cancion of canciones">
     <ion-col col-12>
-      <img src="{{cancion.imagen}}" alt="">
+      <a [routerLink]="['/tabs/c', cancion.key]"><img src="{{cancion.imagen}}" alt=""></a>
       <span class="titulo">{{cancion.titulo}}</span>
       <span class="autor">{{cancion.autor}}</span>
     </ion-col>

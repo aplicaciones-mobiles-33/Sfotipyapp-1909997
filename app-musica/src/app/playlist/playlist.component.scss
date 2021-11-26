@@ -1,0 +1,33 @@
+img{
+    width: 64px; 
+    height: 64px;
+
+}
+
+span{
+    letter-spacing: -0.3px;
+    font-weight: bold;
+    font-family: 'Open Sans';
+    font-style: normal;
+    color: #FFFFFF;
+    font-size: 28px;
+    line-height: 38px;
+}
+
+.titulo{
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    width: 255px; height: 16px;
+    position: absolute;
+    top: 28px;
+    left: 88px;
+}
+
+ion-col{
+    background-color: #121212;
+    height: auto;
+}
+ion-grid{
+    margin-top: 184px;
+}
