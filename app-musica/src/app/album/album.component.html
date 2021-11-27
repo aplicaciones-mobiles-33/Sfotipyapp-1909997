@@ -1,5 +1,8 @@
+<span class="buscar">Buscar</span>
+<ion-searchbar animated placeholder=" Artistas, canciones o podcasts" color="light" (ionChange)="buscar($event)"></ion-searchbar>
+
 <ion-grid>
-  <ion-row *ngFor="let cancion of canciones">
+  <ion-row *ngFor="let cancion of canciones | filtro: Buscar: 'titulo'">
     <ion-col col-12>
       <a [routerLink]="['/tabs/c', cancion.key]"><img src="{{cancion.imagen}}" alt=""></a>
       <span class="titulo">{{cancion.titulo}}</span>

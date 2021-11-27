@@ -12,6 +12,7 @@ export class AlbumComponent implements OnInit, OnDestroy {
   constructor(private fdbs: FirebaseDbService) { }
 
   canciones = [];
+  Buscar: String;
 
   obtenerMusicaSubscribe: Subscription;
 
@@ -21,6 +22,10 @@ export class AlbumComponent implements OnInit, OnDestroy {
     this.obtenerMusicaSubscribe = this.obtenerMusica.subscribe(res =>{
       this.canciones = res;
     })
+  }
+
+  buscar( event ){
+    this.Buscar = event.detail.value;
   }
 
   ngOnDestroy(){ 

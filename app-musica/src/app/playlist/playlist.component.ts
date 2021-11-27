@@ -12,6 +12,7 @@ export class PlaylistComponent implements OnInit, OnDestroy {
   constructor(private db: FirebaseDbService) { }
 
   playlists = [];
+  Buscar: string;
 
   obtenerPlaylistSubscribe: Subscription;
 
@@ -22,6 +23,11 @@ export class PlaylistComponent implements OnInit, OnDestroy {
       this.playlists = res;
     })
   }
+
+  buscar( event ){
+    this.Buscar = event.detail.value;
+  }
+
 
   ngOnDestroy() { 
     if(this.obtenerPlaylistSubscribe){

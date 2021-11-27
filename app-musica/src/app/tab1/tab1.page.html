@@ -47,21 +47,14 @@
 
     <ion-slides [options]="option">
 
-      <ion-slide>
+      <ion-slide *ngFor="let cancion of carussel">
         <div>
-          <img src="/assets/images/doge.jpg" class="rusel">
+          <a [routerLink]="['/tabs/c', cancion.key]"><img src="{{cancion.imagen}}" class="rusel"></a> 
         </div>
         <div>
-          <span class="co">Doge</span>
+          <span class="co">{{cancion.titulo}}</span>
         </div>   
       </ion-slide>
-      <ion-slide>
-        <img src="/assets/images/doge.jpg" class="rusel">       
-      </ion-slide>
-      <ion-slide>
-        <img src="/assets/images/doge.jpg" class="rusel">       
-      </ion-slide>
-
 
     </ion-slides>
 
@@ -80,27 +73,18 @@
 
     <ion-slides [options]="option" class="foot-slide">
 
-      <ion-slide>
+      <ion-slide *ngFor="let cancion of carussel">
         <div>
-          <img src="/assets/images/doge.jpg" class="rusel">
+          <a [routerLink]="['/tabs/c', cancion.key]"><img src="{{cancion.imagen}}" class="rusel"></a>
+          
         </div>
         <div>
-          <span class="co">Doge</span>
+          <span class="co">{{cancion.titulo}}</span>
         </div> 
         <div>
-          <span class="Top-3">Podcast - Doge</span>
+          <span class="Top-3">{{cancion.subtitulo}}</span>
         </div>  
       </ion-slide>
-      <ion-slide>
-        <img src="/assets/images/doge.jpg" class="rusel">       
-      </ion-slide>
-      <ion-slide>
-        <img src="/assets/images/doge.jpg" class="rusel">       
-      </ion-slide>
-
-
     </ion-slides>
-
-
 
 </ion-content>
